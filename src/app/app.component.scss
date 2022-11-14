@@ -1,0 +1,17 @@
+html,
+body {
+  min-height: 100%;
+}
+
+.example-container {
+  height: 100%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: left;
+  margin-left: 200px;
+  padding: 20px;
+}
