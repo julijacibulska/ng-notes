@@ -1,3 +1,17 @@
 <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-  <p>Auto-resizing sidenav</p>
+  <ng-container *ngIf="notesMap$ | async as notesMap; else loading">
+    <ng-container *ngIf="notesMap; else empty">
+      <div *ngFor="let note of notesMap | keyvalue">
+        <a [routerLink]="['notes', note.key]">{{ note.value }}</a>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loading>
+    <h4>Loading...</h4>
+  </ng-template>
+
+  <ng-template #empty>
+    <h4>You havent created any note yet</h4>
+  </ng-template>
 </mat-drawer>

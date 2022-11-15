@@ -1,0 +1,18 @@
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit(noteForm.value)">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="title">Title</mat-label>
+    <input id="title" matInput formControlName="title" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="text">Text</mat-label>
+    <textarea
+      id="text"
+      matInput
+      formControlName="text"
+      placeholder="Start typing your note..."
+    ></textarea>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit">Save</button>
+</form>
