@@ -70,4 +70,10 @@ export class NotesService implements OnDestroy {
 
     this.notes.next(updatedNotesMap);
   }
+
+  deleteNote(id: string) {
+    const newNotes = { ...this.notes.getValue() };
+    delete newNotes[id];
+    this.notes.next(newNotes);
+  }
 }

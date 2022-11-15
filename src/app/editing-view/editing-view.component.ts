@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Note, NotesService } from '../notes.service';
 
 type NoteForm = Partial<{
@@ -24,7 +24,8 @@ export class EditingViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private notesService: NotesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,5 +42,12 @@ export class EditingViewComponent implements OnInit {
         text: text ?? '',
       });
     }
+  }
+
+  delete(): void {
+    if (this.note) {
+      this.notesService.deleteNote(this.note.id);
+    }
+    this.router.navigate(['/']);
   }
 }

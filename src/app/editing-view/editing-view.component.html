@@ -15,4 +15,13 @@
   </mat-form-field>
 
   <button mat-flat-button color="primary" type="submit">Save</button>
+  <button
+    *ngIf="note"
+    mat-flat-button
+    color="secondary"
+    type="button"
+    (click)="delete()"
+  >
+    Delete
+  </button>
 </form>
