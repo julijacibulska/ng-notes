@@ -1,4 +1,13 @@
 <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <input
+      id="query"
+      matInput
+      placeholder="Search"
+      [(ngModel)]="query"
+      (ngModelChange)="this.queryUpdate.next($event)"
+    />
+  </mat-form-field>
   <ng-container *ngIf="notesMap$ | async as notesMap; else loading">
     <ng-container *ngIf="notesMap; else empty">
       <div *ngFor="let note of notesMap | keyvalue">
@@ -7,6 +16,7 @@
     </ng-container>
   </ng-container>
 
+  <!-- TODO: thois is not showing -->
   <ng-template #loading>
     <h4>Loading...</h4>
   </ng-template>
